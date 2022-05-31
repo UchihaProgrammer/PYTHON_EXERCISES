@@ -1,0 +1,34 @@
+#Q - CHOOSE ANY NUMBER AND ASSIGN IT TO A VARIABLE. USER HAVE TO GUESS THIS NUMBER.
+#    YOU ALSO HAVE TO PRINT INCREASE THE NUMBER IF NUMBER IS SMALLER AND DECREASE THE NUMBER IF IT IS GREATER.
+#    THERE SHOULD BE ONLY 10 NO.OF GUESSES
+#    YOU HAVE TO PRINT NO OF GUESSES LEFT
+#    YOU HAVE TO PRINT NO OF GUESSES USER TAKES
+#    IF GUESSES ARE OVER YOU HAVE TO PRINT GAME OVER
+
+# SOLUTION:-
+import random
+
+number = random.randint(1, 100)
+guesses = 1
+print("GUESS THE NUMBER GAME")
+print("GUESS THE NUMBER BETWEEN 1-100\n")
+print("YOU HAVE 10 CHANCES TO GUESS THE CORRECT NUMBER")
+while guesses<=10:
+    try:
+        a = int(input("GUESS THE NUMBER: "))
+    except Exception as e:
+        print("WRONG INPUT")
+        break
+    if a<number:
+        print("YOUR NUMBER IS TOO LOW! INCREASE THE NUMBER")
+    elif a>number:
+        print("YOUR NUMBER IS TO HIGH! DECREASE THE NUMBER")
+    else:
+        print("\nYOU WON!\nYOU TOOK", guesses, "CHANCES TO WIN")
+        break
+    print("NUMBER OF GUESSES LEFT:", 10 - guesses)
+    guesses = guesses + 1
+if guesses>10:
+    print("YOU LOST!\nTHE CORRECT NUMBER IS", number)
+
+input("GAME OVER, PRESS ENTER TO EXIT")
